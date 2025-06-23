@@ -21,10 +21,23 @@ jobs:
         heroku_app_name: "tetris-game-deniz"
         heroku_email: ${{ secrets.HEROKU_EMAIL }}
         branch: "main"
+        justlogin: true
+        
+    - name: Set Heroku remote
+      run: |
+        heroku git:remote -a tetris-game-deniz
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        
+    - name: Deploy to Heroku via Git
+      run: |
+        git push heroku main -f
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         
     - name: Health check
       run: |
-        sleep 10
+        sleep 20
         curl -I https://tetris-game-deniz-12d7b9fc07ea.herokuapp.com/
         echo "Deployment successful! 🎮"
         echo "Play the game at: https://tetris-game-deniz-12d7b9fc07ea.herokuapp.com/"
