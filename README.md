@@ -5,6 +5,9 @@ A classic Tetris game built with HTML5 Canvas and vanilla JavaScript. Features s
 ![Tetris Game](https://img.shields.io/badge/Game-Tetris-blue)
 ![HTML5](https://img.shields.io/badge/HTML5-Canvas-orange)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![Deploy](https://github.com/denizaydogdu/tetris/actions/workflows/deploy.yml/badge.svg)
+
+🎮 **[Play Now on Heroku!](https://tetris-game-deniz-12d7b9fc07ea.herokuapp.com/)**
 
 ## Features
 
@@ -44,7 +47,7 @@ A classic Tetris game built with HTML5 Canvas and vanilla JavaScript. Features s
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/tetris.git
+   git clone https://github.com/denizaydogdu/tetris.git
    cd tetris
    ```
 

@@ -1,0 +1,30 @@
+name: Deploy to Heroku
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Deploy to Heroku
+      uses: akhileshns/heroku-deploy@v3.13.15
+      with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: "tetris-game-deniz"
+        heroku_email: ${{ secrets.HEROKU_EMAIL }}
+        branch: "main"
+        
+    - name: Health check
+      run: |
+        sleep 10
+        curl -I https://tetris-game-deniz-12d7b9fc07ea.herokuapp.com/
+        echo "Deployment successful! 🎮"
+        echo "Play the game at: https://tetris-game-deniz-12d7b9fc07ea.herokuapp.com/"
